@@ -6,7 +6,8 @@ class Detail :
         self.createDate = createDate
         self.content = content
         self.replayDetail = replayDetail
-        # self.lastReplyTime = lastReplyTime
+        self.replayCount = len(self.replayDetail) 
+        self.lastReplyTime = self.replayDetail[-1].replayDate if (len(replayDetail) > 0) else None
     def __repr__(self):
         return ', '.join("%s: %s" % item for item in vars(self).items())
 
