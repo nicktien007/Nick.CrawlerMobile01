@@ -23,7 +23,7 @@ args = parser.parse_args()
 
 now = datetime.now()
 dt_string = now.strftime("%Y%m%d%H%M%S")
-topicName = list(filter(lambda x: x["topicCode"] == "16", config["topicCodes"]))[0]["topicName"]
+topicName = list(filter(lambda x: x["topicCode"] == args.code, config["topicCodes"]))[0]["topicName"]
 fileName = topicName + "_" + dt_string
 
 print("開始爬取討論區："+ "【" + topicName + "】!!")
