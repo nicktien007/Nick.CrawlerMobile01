@@ -14,7 +14,7 @@ print("開始爬取討論區："+ "【" + topicName + "】!!")
 sortField = "lastReplyTime" if args.sort == "t" else "replayCount"
 topics = crawler.getTopicsBy(args.code, int(args.page), sortField, bool(args.desc))
 
-print("爬取討論區："+ "【" + topicName + "】" + "共" + args.page + "頁" + "完成!!")
+print("爬取討論區："+ "【" + topicName + "】" + "共" + str(args.page) + "頁" + "完成!!")
 
 fileName = fileUtil.getFileName(args, config)
 fileUtil.saveJson(topics, fileName)
