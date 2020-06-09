@@ -1,6 +1,7 @@
 import urllib.request as req
 import bs4
 from entity import mobile
+from operator import itemgetter, attrgetter
 
 def getHtmlRootBy(url):
     request = req.Request(url, headers = {
@@ -83,17 +84,16 @@ def getReplaysByPageDetailRoot(pageDetailRoot):
     return replays
 
 def getReplay(replayRoot):
-    # replayUserId = replayRoot.find("a",class_ = "o-hashtag is-notice").parent.parent.find("a",class_="c-link c-link--gn u-ellipsis")["href"].replace("/userinfo.php?id=","")
     replayUserId = replayRoot.find("div",class_ = "c-authorInfo__id").a["href"].replace("/userinfo.php?id=","")
     replayDate = replayRoot.find("div",class_="l-navigation__item").find("span",class_="o-fNotes o-fSubMini").string
     articleStrings = replayRoot.find("article").stripped_strings
     content = [s for s in articleStrings]
     return mobile.Replay(replayUserId, replayDate, content)
 
-def getTopicsBy(topicCode,page):
+def getTopicsBy(topicCode, page, sortField, isDesc):
     detailUrls = getTopicUrlsBy(topicCode,page)
     details = []
     for url in detailUrls:
         d = getTopicDetailBy(url)
         details.append(d)
-    return details
+    return sorted(details, key = attrgetter(sortField), reverse = isDesc)
