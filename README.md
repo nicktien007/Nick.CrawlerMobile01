@@ -25,6 +25,16 @@
 | 36   | 時事版 |
 
 
+## 相依套件
+
+### 安裝 Beautiful Soup
+
+> https://pypi.org/project/beautifulsoup4/
+```python=
+# 安裝 Python 3 的 Beautiful Soup 4 模組
+pip install beautifulsoup4
+```
+
 ## 爬蟲調用範例
 > 爬取 Mobile01 女性版 1 頁 按照 回應數 進行 降冪排序
 
