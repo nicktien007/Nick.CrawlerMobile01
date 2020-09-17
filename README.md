@@ -44,6 +44,7 @@ python3 main.py -c 27 -p 2 -sort r -desc True
 
 
 ### 參數說明
+*   -h, --help  show this help message and exit
 *   -code CODE, -c CODE  討論區代碼 (**預設值：16，手機板**)
 *   -page PAGE, -p PAGE  爬取幾頁 (**預設值：1**)
 *   -sort SORT, -s SORT  排序欄位 (**預設值：最後回覆時間**)

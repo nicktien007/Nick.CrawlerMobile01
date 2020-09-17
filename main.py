@@ -1,6 +1,4 @@
-import json
-import codecs
-import crawlerMobile as crawler
+import crawlerMobile as Crawler
 import ArgumentParserFactory
 import fileUtil
 import configUtil
@@ -12,7 +10,7 @@ topicName = configUtil.getTopicName(args, config)
 print("開始爬取討論區："+ "【" + topicName + "】!!")
 
 sortField = "lastReplyTime" if args.sort == "t" else "replayCount"
-topics = crawler.getTopicsBy(args.code, int(args.page), sortField, bool(args.desc))
+topics = Crawler.getTopicsBy(args.code, int(args.page), sortField, bool(args.desc))
 
 print("爬取討論區："+ "【" + topicName + "】" + "共" + str(args.page) + "頁" + "完成!!")
 
